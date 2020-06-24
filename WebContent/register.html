@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link rel="stylesheet" href="/Users/shreyaamitabh/Downloads/bootstrap-4.4.1-dist/css/bootstrap.min.css" >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <link rel= "stylesheet" href="login.css">
+</head>
+<style>
+.form{
+	width:500px;
+	height:700px;
+	position:relative;
+	background-color:white;
+	margin:100px auto;
+	border: 1px solid lightgray;
+	box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius:20px;
+	position:relative;
+	}
+#emailVal, #passVal{
+	margin-left:20px;
+	color:red;
+	
+}
+</style>
+<body>
+<div class="form">
+    <h1 style="text-align:center; font-family: serif;">Sign up for free </h1>
+  
+<form action="adduser"  method="get">
+<div class="form-group">
+      <label for="email" id="textemail">Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="Enter your name" name="Name">
+    </div>
+    <div class="form-group">
+      <label for="email" id="textemail">Email:</label>
+      <input type="email" class="form-control" id="email" onkeyup="getEmail(this.value)" placeholder="Enter your email" name="Email">
+      <p id="emailVal"></p>
+    </div>
+    <div class="form-group">
+      <label for="pwd" id="textpwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" onkeyup="getPass(this.value)" placeholder="Enter your password" name="Password">
+      <p id="passVal"></p>
+    </div>
+    <div class="form-group">
+      <label for="pwd" id="textpwd">Phone:</label>
+      <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" name="Telephone">
+    </div>
+      <div class="form-group">
+      <label for="pwd" id="textpwd">Occupation:</label>
+      <select type="text" value="" name="Occupation"> 
+            <option>Working Professional</option> 
+            <option>Student</option> 
+        </select>
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+  </form> 
+  </div>
+
+<script >
+function getEmail(val)
+{
+	console.log("here");
+	 email=val;
+	    let pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{3}$/; 
+
+	    if(email.match(pattern))
+	    {
+	    	document.getElementById("emailVal").innerHTML="";
+	    }
+	    else
+	    	{
+	    	document.getElementById("emailVal").innerHTML="Please Enter a valid Email";
+	    	}
+	   
+
+}
+function getPass(val)
+{
+	if(val.length<8)
+		document.getElementById("passVal").innerHTML="The password must be atleast 8 letters";	
+	else
+		document.getElementById("passVal").innerHTML="";
+}
+</script>
+</body>
+</html>
